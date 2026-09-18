@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, MapPin, BedDouble, UtensilsCrossed, Phone } from 'lucide-react';
+import { ArrowRight, MapPin, BedDouble, UtensilsCrossed, Phone } from 'lucide-react';
 
 const HERO_SLIDES = [
   {
@@ -46,7 +46,7 @@ export const CinematicHero = () => {
       className="relative hero-full-height min-h-screen min-h-dvh h-screen h-dvh flex flex-col justify-center pt-16 sm:pt-24 pb-4 sm:pb-8 overflow-hidden bg-slate-950"
       style={{ minHeight: '100dvh', height: '100dvh' }}
     >
-      {/* 4-Image Rotating Background Slider spanning full 100% height */}
+      {/* 4-Image Rotating Background Slider */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {HERO_SLIDES.map((slide, index) => (
           <div
@@ -58,18 +58,15 @@ export const CinematicHero = () => {
             <img
               src={slide.image}
               alt={slide.title}
-              className={`w-full h-full object-cover object-center filter brightness-[0.40] contrast-[1.15] transition-transform duration-7000 ease-out ${
+              className={`w-full h-full object-cover object-center filter brightness-[0.85] transition-transform duration-7000 ease-out ${
                 index === currentSlide ? 'scale-105' : 'scale-100'
               }`}
             />
-            {/* Deep Dark Vignette Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60"></div>
+            {/* Clean, subtle, even overlay for text clarity without heavy shades or gradients */}
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
         ))}
       </div>
-
-      {/* Decorative Golden Ambient Center Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-gold-500/12 rounded-full blur-3xl pointer-events-none z-0"></div>
 
       {/* Center Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 w-full">
@@ -77,13 +74,6 @@ export const CinematicHero = () => {
         {/* Header Content */}
         <div className="text-center max-w-4xl mx-auto mb-3 sm:mb-6">
           
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-slate-900/90 border border-gold-500/40 text-gold-300 text-[9px] sm:text-xs tracking-[0.22em] uppercase mb-1.5 sm:mb-3 backdrop-blur-md shadow-lg font-bold">
-            <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gold-400" />
-            <span>WELCOME TO PRABHAA HOTELS</span>
-            <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gold-400" />
-          </div>
-
           {/* Line 1: Big Letters (Single Line) */}
           <h1 className="font-serif text-xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold tracking-tight text-white uppercase leading-tight mb-1 sm:mb-2.5 drop-shadow-xl sm:whitespace-nowrap">
             A Stay Beyond{' '}
