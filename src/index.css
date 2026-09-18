@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-50: #FDFBF7;
+  --color-gold-100: #F9F4E8;
+  --color-gold-200: #F0E4C4;
+  --color-gold-300: #E3CD97;
+  --color-gold-400: #D4AF37;
+  --color-gold-500: #B88E28;
+  --color-gold-600: #967018;
+  --color-gold-700: #755410;
+  --color-gold-800: #573D0B;
+  --color-gold-900: #3D2906;
+
+  --color-slate-900: #0F172A;
+  --color-slate-850: #152035;
+  --color-slate-800: #1E293B;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-slate-400: #94A3B8;
+  --color-slate-300: #CBD5E1;
+  --color-slate-200: #E2E8F0;
+  --color-slate-100: #F1F5F9;
+  --color-slate-50: #F8FAFC;
+
+  --color-ivory-50: #FCFBF7;
+  --color-ivory-100: #F8F6EF;
+  --color-ivory-200: #EFECE0;
+  --color-ivory-300: #E2DDCA;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Cinzel", serif;
+  --font-sans: "Plus Jakarta Sans", Inter, sans-serif;
+}
+
+:root {
+  --gold-primary: #B88E28;
+  --gold-champagne: #D4AF37;
+  --gold-light: #F9F4E8;
+  --gold-dark: #755410;
+}
+
+body {
+  background-color: #FCFBF7;
+  color: #1E293B;
+  overflow-x: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Custom smooth scrollbar for white theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+  border: 1px solid rgba(184, 142, 40, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Premium Gold Buttons - Light Theme */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.25rem;
+  background: linear-gradient(135deg, #D4AF37 0%, #B88E28 100%);
+  color: #FFFFFF;
+  border: 1px solid #E3CD97;
+  box-shadow: 0 4px 14px rgba(184, 142, 40, 0.25);
+  cursor: pointer;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #E1BE4E 0%, #C4982F 100%);
+  box-shadow: 0 6px 20px rgba(184, 142, 40, 0.4);
+  transform: translateY(-1px);
+}
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-outline-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.25rem;
+  background: #FFFFFF;
+  color: #8C6A15;
+  border: 1.5px solid #D4AF37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+}
+.btn-outline-gold:hover {
+  background: #F9F4E8;
+  color: #614608;
+  border-color: #B88E28;
+  box-shadow: 0 4px 15px rgba(184, 142, 40, 0.2);
+  transform: translateY(-1px);
+}
+.btn-outline-gold:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #B88E28 0%, #D4AF37 50%, #967018 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light Mode Luxury Glass & Cards */
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+}
+
+.glass-card-gold {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 0.375rem;
+  box-shadow: 0 15px 30px -10px rgba(184, 142, 40, 0.1), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+}
+.glass-card-gold:hover {
+  border-color: rgba(184, 142, 40, 0.6);
+  box-shadow: 0 20px 35px -10px rgba(184, 142, 40, 0.18), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
