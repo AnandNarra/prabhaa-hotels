@@ -6,15 +6,22 @@ export const LightboxModal = () => {
   const { isOpen, currentImage, currentIndex, totalImages, closeLightbox, nextImage, prevImage } = useLightbox();
 
   useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e) => {
-      if (!isOpen) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowRight') nextImage();
       if (e.key === 'ArrowLeft') prevImage();
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isOpen, nextImage, prevImage, closeLightbox]);
 
   if (!isOpen || !currentImage) return null;

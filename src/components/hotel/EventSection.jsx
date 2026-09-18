@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Users, Maximize2, Sparkles, Calendar, CheckCircle2, ArrowRight, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Users, Maximize2, Sparkles, Calendar, CheckCircle2, ArrowRight, Phone, X } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
 import { useBooking } from '../../context/BookingContext';
 
@@ -14,6 +14,26 @@ export const EventSection = ({ hotel }) => {
     expectedGuests: '150-300',
     eventDate: ''
   });
+
+  // Lock body scroll and handle Escape key when modal is open
+  useEffect(() => {
+    if (!eventFormOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setEventFormOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [eventFormOpen]);
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
@@ -122,13 +142,19 @@ export const EventSection = ({ hotel }) => {
 
         {/* Interactive Event Enquiry Modal */}
         {eventFormOpen && (
-          <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white border border-gold-400/40 p-6 sm:p-8 rounded-2xl max-w-lg w-full text-slate-900 shadow-2xl relative animate-fadeIn">
+          <div
+            onClick={(e) => e.target === e.currentTarget && setEventFormOpen(false)}
+            className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="bg-white border border-gold-400/40 p-6 sm:p-8 rounded-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto text-slate-900 shadow-2xl relative my-auto">
               <button
                 onClick={() => setEventFormOpen(false)}
-                className="absolute top-4 right-4 text-slate-400 hover:text-slate-800 p-1 font-bold text-lg"
+                className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-800 hover:bg-stone-100 transition-colors cursor-pointer"
+                aria-label="Close modal"
               >
-                ✕
+                <X className="w-5 h-5" />
               </button>
 
               <h3 className="font-serif text-2xl mb-1 text-slate-900 font-semibold">Event Enquiry</h3>

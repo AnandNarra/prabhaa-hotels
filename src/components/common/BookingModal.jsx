@@ -31,6 +31,24 @@ export const BookingModal = () => {
     }
   }, [selectedHotel, selectedRoomId]);
 
+  // Body scroll lock and escape handler
+  React.useEffect(() => {
+    if (!isBookingOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeBooking();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isBookingOpen, closeBooking]);
+
   if (!isBookingOpen) return null;
 
   const currentHotelData = hotelsData[formData.hotelId === 'grand-inn' ? 'grandInn' : 'royalPark'];
@@ -69,13 +87,12 @@ export const BookingModal = () => {
       return;
     }
 
-    const message = `*Prabhaa Hotels Reservation Request*%0A` +
+    const message = `*Room Reservation Inquiry - Prabhaa Hotels*%0A%0A` +
       `*Hotel:* ${currentHotelData.name}%0A` +
-      `*Room:* ${activeRoom?.name || 'Standard/Executive'}%0A` +
-      `*Check-In:* ${formData.checkIn}%0A` +
-      `*Check-Out:* ${formData.checkOut}%0A` +
-      `*Nights:* ${nights}%0A` +
-      `*Rooms:* ${formData.rooms} (Adults: ${formData.adults}, Children: ${formData.children})%0A` +
+      `*Room:* ${activeRoom?.name || 'Selected Room'}%0A` +
+      `*Dates:* ${formData.checkIn} to ${formData.checkOut} (${nights} night${nights > 1 ? 's' : ''})%0A` +
+      `*Guests:* ${formData.adults} Adults, ${formData.children} Children, ${formData.rooms} Room(s)%0A` +
+      `*Estimated Total:* ₹${estimatedTotal.toLocaleString()}%0A%0A` +
       `*Guest Name:* ${formData.fullName}%0A` +
       `*Phone:* ${formData.phone}%0A` +
       `*Email:* ${formData.email || 'N/A'}%0A` +
@@ -88,7 +105,12 @@ export const BookingModal = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-charcoal-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fade-in">
+    <div
+      onClick={(e) => e.target === e.currentTarget && closeBooking()}
+      className="fixed inset-0 z-50 overflow-y-auto bg-charcoal-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+      role="dialog"
+      aria-modal="true"
+    >
       <div className="relative w-full max-w-2xl bg-charcoal-900 border border-gold-500/30 rounded-sm shadow-2xl overflow-hidden text-slate-100">
         
         {/* Top Header */}
