@@ -77,22 +77,22 @@ export const ContactPage = () => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-stone-150 flex flex-wrap items-center justify-between gap-3">
+            <div className="pt-6 border-t border-stone-150 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(hotelsData.grandInn.contact.mapQuery)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline-gold text-xs px-4 py-2.5 flex items-center gap-1.5 rounded-lg font-semibold"
+                className="btn-outline-gold text-xs px-4 py-2.5 flex items-center justify-center gap-1.5 rounded-lg font-semibold"
               >
                 <span>Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
               </a>
 
               <a
                 href="tel:+918572233133"
-                className="btn-gold text-xs px-5 py-2.5 flex items-center gap-1.5 rounded-lg font-bold shadow-md"
+                className="btn-gold text-xs px-5 py-2.5 flex items-center justify-center gap-1.5 rounded-lg font-bold shadow-md"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="w-3.5 h-3.5 shrink-0" />
                 <span>Call Reception</span>
               </a>
             </div>
@@ -137,22 +137,22 @@ export const ContactPage = () => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-stone-150 flex flex-wrap items-center justify-between gap-3">
+            <div className="pt-6 border-t border-stone-150 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(hotelsData.royalPark.contact.mapQuery)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline-gold text-xs px-4 py-2.5 flex items-center gap-1.5 rounded-lg font-semibold"
+                className="btn-outline-gold text-xs px-4 py-2.5 flex items-center justify-center gap-1.5 rounded-lg font-semibold"
               >
                 <span>Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
               </a>
 
               <a
                 href="tel:+918572233111"
-                className="btn-gold text-xs px-5 py-2.5 flex items-center gap-1.5 rounded-lg font-bold shadow-md"
+                className="btn-gold text-xs px-5 py-2.5 flex items-center justify-center gap-1.5 rounded-lg font-bold shadow-md"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="w-3.5 h-3.5 shrink-0" />
                 <span>Call Reception</span>
               </a>
             </div>

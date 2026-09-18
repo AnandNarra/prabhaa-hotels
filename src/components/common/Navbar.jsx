@@ -22,7 +22,6 @@ export const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Check initial position
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -72,13 +71,11 @@ export const Navbar = () => {
     }
   };
 
-  // On Home page at the very top: transparent floating overlay.
-  // When scrolled or on internal pages: solid white sticky luxury bar.
   const isTransparentAtTop = isHomePage && !isScrolled;
 
   return (
     <>
-      {/* Top Notification Bar - Only visible on subpages or when scrolled */}
+      {/* Top Notification Bar */}
       {(!isHomePage || isScrolled) && (
         <div className="hidden lg:block bg-ivory-100 border-b border-gold-200 py-1.5 text-xs text-slate-700 transition-all duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -109,16 +106,16 @@ export const Navbar = () => {
       <nav
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
           isTransparentAtTop
-            ? 'bg-transparent py-5 border-b border-white/10'
-            : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gold-200/80 py-3.5'
+            ? 'bg-transparent py-3 sm:py-5 border-b border-white/10'
+            : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gold-200/80 py-2.5 sm:py-3.5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
             {/* Brand Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className={`w-10 h-10 sm:w-12 sm:h-12 relative flex items-center justify-center rounded-lg p-0.5 border transition-all ${
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+              <div className={`w-9 h-9 sm:w-12 sm:h-12 relative flex items-center justify-center rounded-lg p-0.5 border transition-all ${
                 isTransparentAtTop 
                   ? 'bg-slate-900/60 border-gold-400/50 backdrop-blur-md' 
                   : 'bg-white border-gold-400/40 shadow-sm'
@@ -130,12 +127,12 @@ export const Navbar = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className={`font-serif tracking-[0.2em] text-lg sm:text-xl font-bold uppercase transition-colors ${
+                <span className={`font-serif tracking-[0.16em] sm:tracking-[0.2em] text-base sm:text-xl font-bold uppercase transition-colors ${
                   isTransparentAtTop ? 'text-white' : 'text-slate-900 group-hover:text-gold-600'
                 }`}>
                   PRABHAA
                 </span>
-                <span className={`text-[10px] tracking-[0.32em] uppercase font-semibold -mt-0.5 ${
+                <span className={`text-[9px] sm:text-[10px] tracking-[0.26em] sm:tracking-[0.32em] uppercase font-semibold -mt-0.5 ${
                   isTransparentAtTop ? 'text-gold-300' : 'text-gold-600'
                 }`}>
                   HOTELS GROUP
@@ -210,7 +207,7 @@ export const Navbar = () => {
               ))}
             </div>
 
-            {/* Desktop Actions: Direct Enquire Button */}
+            {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-4">
               <Link
                 to="/contact"
@@ -221,26 +218,18 @@ export const Navbar = () => {
               </Link>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex items-center gap-3 lg:hidden">
-              <Link
-                to="/contact"
-                className="btn-gold text-xs px-3.5 py-2 flex items-center gap-1.5 rounded-lg shadow-sm"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Enquire</span>
-              </Link>
-
+            {/* Mobile Menu Hamburger Toggle */}
+            <div className="flex items-center lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`p-2 rounded-lg border ${
+                className={`p-2 rounded-lg border transition-colors ${
                   isTransparentAtTop 
-                    ? 'text-white bg-slate-900/60 border-white/20' 
-                    : 'text-slate-800 bg-stone-100 border-stone-200'
+                    ? 'text-white bg-slate-900/60 border-white/20 hover:bg-slate-900/80' 
+                    : 'text-slate-800 bg-stone-100 border-stone-200 hover:bg-stone-200'
                 }`}
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
@@ -248,77 +237,77 @@ export const Navbar = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-full bg-white border-b border-gold-200 max-h-[85vh] overflow-y-auto px-6 py-6 animate-fadeIn shadow-2xl text-slate-900">
-            <div className="flex flex-col space-y-4">
+          <div className="lg:hidden fixed inset-x-0 top-full bg-white border-b border-gold-200 max-h-[85vh] overflow-y-auto px-5 py-5 animate-fadeIn shadow-2xl text-slate-900">
+            <div className="flex flex-col space-y-3.5">
               <div className="text-xs uppercase tracking-widest text-gold-700 font-bold pb-2 border-b border-slate-100">
                 Navigation Menu
               </div>
 
               <button
                 onClick={() => handleNavigation('/')}
-                className="text-left text-lg font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
+                className="text-left text-base font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
               >
                 Home
               </button>
 
               {/* Property Links in Mobile Drawer */}
-              <div className="bg-stone-50 p-4 rounded-xl border border-gold-200 space-y-3">
+              <div className="bg-stone-50 p-3.5 rounded-xl border border-gold-200 space-y-2.5">
                 <div className="text-xs uppercase tracking-wider text-gold-700 font-bold">
                   Our Two Properties
                 </div>
                 <Link
                   to="/hotels/grand-inn"
-                  className="block p-3 rounded-lg bg-white hover:bg-gold-50 border border-slate-200 hover:border-gold-300 shadow-sm"
+                  className="block p-2.5 rounded-lg bg-white hover:bg-gold-50 border border-slate-200 hover:border-gold-300 shadow-sm"
                 >
-                  <div className="font-serif text-slate-900 font-bold text-base">Prabhaa Grand Inn</div>
-                  <div className="text-xs text-slate-500 mt-0.5">30 A/C Rooms, Amaravathi Non-Veg & Darbar Hall</div>
+                  <div className="font-serif text-slate-900 font-bold text-sm">Prabhaa Grand Inn</div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">30 A/C Rooms, Amaravathi Non-Veg & Darbar Hall</div>
                 </Link>
                 <Link
                   to="/hotels/royal-park"
-                  className="block p-3 rounded-lg bg-white hover:bg-gold-50 border border-slate-200 hover:border-gold-300 shadow-sm"
+                  className="block p-2.5 rounded-lg bg-white hover:bg-gold-50 border border-slate-200 hover:border-gold-300 shadow-sm"
                 >
-                  <div className="font-serif text-slate-900 font-bold text-base">Prabaa Royal Park</div>
-                  <div className="text-xs text-slate-500 mt-0.5">30 Rooms, 100% Pure Veg Dining & The Royal Hall</div>
+                  <div className="font-serif text-slate-900 font-bold text-sm">Prabaa Royal Park</div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">30 Rooms, 100% Pure Veg Dining & The Royal Hall</div>
                 </Link>
               </div>
 
               <button
                 onClick={() => handleNavigation('/#about')}
-                className="text-left text-lg font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
+                className="text-left text-base font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
               >
                 About Prabhaa
               </button>
 
               <Link
                 to="/experiences"
-                className="text-left text-lg font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
+                className="text-left text-base font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
               >
                 Experiences & Dining
               </Link>
 
               <Link
                 to="/gallery"
-                className="text-left text-lg font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
+                className="text-left text-base font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
               >
                 Photo Gallery
               </Link>
 
               <Link
                 to="/contact"
-                className="text-left text-lg font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
+                className="text-left text-base font-serif font-bold text-slate-900 hover:text-gold-600 py-1"
               >
                 Contact & Location
               </Link>
 
-              <div className="pt-4 border-t border-slate-200 space-y-3">
+              <div className="pt-3 border-t border-slate-200 space-y-2.5">
                 <Link
                   to="/contact"
-                  className="w-full btn-gold py-3.5 text-center block text-sm rounded-lg font-bold"
+                  className="w-full btn-gold py-3 text-center block text-xs rounded-lg font-bold"
                 >
                   Contact Reception Desks
                 </Link>
 
-                <div className="text-xs text-slate-600 text-center space-y-1 bg-stone-100 p-3 rounded-lg">
+                <div className="text-[11px] text-slate-600 text-center space-y-1 bg-stone-100 p-2.5 rounded-lg">
                   <div className="font-bold text-slate-900">Direct Phone Calls:</div>
                   <div className="text-gold-700 font-semibold">
                     <a href="tel:+918572233133">+91 8572 233133</a> | <a href="tel:+918572233111">+91 8572 233111</a>

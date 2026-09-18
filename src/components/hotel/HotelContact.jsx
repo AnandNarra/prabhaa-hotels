@@ -41,23 +41,23 @@ export const HotelContact = ({ hotel }) => {
             Experience exceptional luxury, modern executive amenities, and authentic culinary dining at {hotel.name}. Call our 24/7 front desk for instant confirmations.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
             <a
               href={`tel:${primaryPhone}`}
-              className="btn-gold text-xs sm:text-sm px-8 py-4 inline-flex items-center gap-2.5 rounded-lg shadow-lg font-bold"
+              className="btn-gold text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 rounded-lg shadow-md font-bold text-center"
             >
-              <Phone className="w-4 h-4" />
-              <span>CALL RECEPTION NOW: {hotel.contact.phones[0]}</span>
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>Call Reception: {hotel.contact.phones[0]}</span>
             </a>
 
             <a
               href={`https://wa.me/${mobilePhone.replace('+', '')}?text=${encodeURIComponent(`Hello, I would like to inquire about room reservations at ${hotel.name}.`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline-gold text-xs sm:text-sm px-7 py-4 inline-flex items-center gap-2 rounded-lg font-semibold bg-white"
+              className="btn-outline-gold text-xs sm:text-sm px-5 sm:px-7 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 rounded-lg font-semibold bg-white text-center"
             >
-              <MessageSquare className="w-4 h-4 text-gold-600" />
-              <span>WHATSAPP DESK</span>
+              <MessageSquare className="w-4 h-4 text-gold-600 shrink-0" />
+              <span>WhatsApp Desk</span>
             </a>
           </div>
         </div>

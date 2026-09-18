@@ -98,20 +98,20 @@ export const EventSection = ({ hotel }) => {
             </div>
 
             {/* CTAs */}
-            <div className="pt-6 border-t border-stone-150 flex flex-wrap items-center gap-4">
+            <div className="pt-6 border-t border-stone-150 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
               <button
                 onClick={() => setEventFormOpen(true)}
-                className="btn-gold text-xs px-7 py-3.5 flex items-center gap-2 rounded-lg"
+                className="btn-gold text-xs px-5 sm:px-7 py-2.5 sm:py-3.5 flex items-center justify-center gap-2 rounded-lg"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4 shrink-0" />
                 <span>Plan Your Event</span>
               </button>
 
               <a
                 href={`tel:${hotel.contact.phones[0].replace(/\s/g, '')}`}
-                className="btn-outline-gold text-xs px-6 py-3.5 flex items-center gap-2 rounded-lg"
+                className="btn-outline-gold text-xs px-5 sm:px-6 py-2.5 sm:py-3.5 flex items-center justify-center gap-2 rounded-lg"
               >
-                <Phone className="w-4 h-4 text-gold-600" />
+                <Phone className="w-4 h-4 text-gold-600 shrink-0" />
                 <span>Call Banquet Desk</span>
               </a>
             </div>

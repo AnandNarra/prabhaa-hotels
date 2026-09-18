@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import SectionHeading from '../components/common/SectionHeading';
 import Experiences from '../components/home/Experiences';
 import { Link } from 'react-router-dom';
 
@@ -10,14 +9,8 @@ export const ExperiencesPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FCFBF7] pt-28 pb-20">
+    <div className="min-h-screen bg-[#FCFBF7] pt-20 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="SIGNATURE EXPERIENCES"
-          title="Hospitality Tailored for Every Occasion"
-          subtitle="Discover curated culinary journeys, grand celebration venues, and restful luxury suites across Prabhaa Hotels."
-        />
-
         <Experiences />
 
         {/* Deep Dive: Dining Comparison */}

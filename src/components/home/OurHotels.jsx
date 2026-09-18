@@ -99,20 +99,20 @@ export const OurHotels = () => {
               </div>
 
               {/* CTAs */}
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-4">
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
                 <Link
                   to="/hotels/grand-inn"
-                  className="btn-gold text-xs px-6 py-3 flex items-center gap-2 shadow-sm"
+                  className="btn-gold text-xs px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-center gap-2 shadow-sm text-center"
                 >
                   <span>Explore Grand Inn</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </Link>
 
                 <a
                   href={`tel:${hotelsData.grandInn.contact.phones[0].replace(/\s/g, '')}`}
-                  className="btn-outline-gold text-xs px-6 py-3 flex items-center gap-2"
+                  className="btn-outline-gold text-xs px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-center gap-2 text-center"
                 >
-                  <Phone className="w-3.5 h-3.5" />
+                  <Phone className="w-3.5 h-3.5 shrink-0" />
                   <span>Call Reception</span>
                 </a>
               </div>
@@ -200,20 +200,20 @@ export const OurHotels = () => {
               </div>
 
               {/* CTAs */}
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-4">
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
                 <Link
                   to="/hotels/royal-park"
-                  className="btn-gold text-xs px-6 py-3 flex items-center gap-2 shadow-sm"
+                  className="btn-gold text-xs px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-center gap-2 shadow-sm text-center"
                 >
                   <span>Explore Royal Park</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </Link>
 
                 <a
                   href={`tel:${hotelsData.royalPark.contact.phones[0].replace(/\s/g, '')}`}
-                  className="btn-outline-gold text-xs px-6 py-3 flex items-center gap-2"
+                  className="btn-outline-gold text-xs px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-center gap-2 text-center"
                 >
-                  <Phone className="w-3.5 h-3.5" />
+                  <Phone className="w-3.5 h-3.5 shrink-0" />
                   <span>Call Reception</span>
                 </a>
               </div>

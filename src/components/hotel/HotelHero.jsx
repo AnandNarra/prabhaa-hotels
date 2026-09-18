@@ -64,21 +64,21 @@ export const HotelHero = ({ hotel }) => {
         </div>
 
         {/* Dual Actions: Explore Rooms & Contact Reception */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4 max-w-lg mx-auto">
           <button
             onClick={scrollToRooms}
-            className="btn-gold text-xs sm:text-sm px-8 py-4 flex items-center gap-2 shadow-xl"
+            className="btn-gold text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center gap-2 shadow-xl"
           >
-            <BedDouble className="w-4 h-4" />
-            <span>EXPLORE ROOMS & TARIFF</span>
+            <BedDouble className="w-4 h-4 shrink-0" />
+            <span>Explore Rooms & Tariff</span>
           </button>
 
           <button
             onClick={scrollToContact}
-            className="btn-outline-gold text-xs sm:text-sm px-8 py-4 flex items-center gap-2"
+            className="btn-outline-gold text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-center gap-2"
           >
-            <Phone className="w-4 h-4" />
-            <span>CONTACT RECEPTION</span>
+            <Phone className="w-4 h-4 shrink-0" />
+            <span>Contact Reception</span>
           </button>
         </div>
 

@@ -94,20 +94,20 @@ export const RoomModal = ({ room, hotel, onClose }) => {
           </div>
 
           {/* Modal Actions */}
-          <div className="pt-4 border-t border-slate-200 flex items-center justify-between gap-4">
+          <div className="pt-4 border-t border-slate-200 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-4">
             <button
               onClick={onClose}
-              className="btn-secondary text-xs px-6 py-3"
+              className="btn-secondary text-xs py-2.5 px-5 justify-center"
             >
               Close
             </button>
 
             <a
               href={`tel:${hotel.contact.phones[0].replace(/\s/g, '')}`}
-              className="btn-gold text-xs px-8 py-3 flex items-center gap-2"
+              className="btn-gold text-xs py-2.5 px-4 sm:px-6 flex items-center justify-center gap-2 shadow-md"
             >
-              <Phone className="w-4 h-4" />
-              <span>Call Reception ({hotel.contact.phones[0]})</span>
+              <Phone className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">Call Reception ({hotel.contact.phones[0]})</span>
             </a>
           </div>
 

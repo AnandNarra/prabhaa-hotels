@@ -75,20 +75,20 @@ export const RoomShowcase = ({ hotel }) => {
                 </div>
 
                 {/* CTAs */}
-                <div className="grid grid-cols-2 gap-2.5 pt-4 border-t border-slate-100">
+                <div className="grid grid-cols-2 gap-2 pt-4 border-t border-slate-100">
                   <button
                     onClick={() => setSelectedRoom(room)}
-                    className="btn-secondary text-xs py-2.5 text-center flex items-center justify-center gap-1.5"
+                    className="btn-secondary text-[11px] sm:text-xs py-2 px-2 text-center flex items-center justify-center gap-1"
                   >
-                    <Info className="w-3.5 h-3.5" />
+                    <Info className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
                     <span>View Details</span>
                   </button>
 
                   <a
                     href={`tel:${hotel.contact.phones[0].replace(/\s/g, '')}`}
-                    className="btn-gold text-xs py-2.5 text-center flex items-center justify-center gap-1.5 shadow-sm"
+                    className="btn-gold text-[11px] sm:text-xs py-2 px-2 text-center flex items-center justify-center gap-1 shadow-sm"
                   >
-                    <Phone className="w-3.5 h-3.5" />
+                    <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
                     <span>Call Desk</span>
                   </a>
                 </div>
