@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import LightboxModal from './components/common/LightboxModal';
 import Toast from './components/common/Toast';
+import ScrollToTop from './components/common/ScrollToTop';
 import { BookingProvider } from './context/BookingContext';
 import { LightboxProvider } from './context/LightboxContext';
 
@@ -16,17 +17,6 @@ import ExperiencesPage from './pages/ExperiencesPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
-
-// Scroll to top component on route change
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
 
 function App() {
   return (
