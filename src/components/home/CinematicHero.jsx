@@ -42,7 +42,7 @@ export const CinematicHero = () => {
   }, []);
 
   return (
-    <section 
+    <section
       className="relative hero-full-height min-h-screen min-h-dvh h-screen h-dvh flex flex-col justify-center pt-16 sm:pt-24 pb-4 sm:pb-8 overflow-hidden bg-slate-950"
       style={{ minHeight: '100dvh', height: '100dvh' }}
     >
@@ -51,16 +51,14 @@ export const CinematicHero = () => {
         {HERO_SLIDES.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
           >
             <img
               src={slide.image}
               alt={slide.title}
-              className={`w-full h-full object-cover object-center filter brightness-[0.85] transition-transform duration-7000 ease-out ${
-                index === currentSlide ? 'scale-105' : 'scale-100'
-              }`}
+              className={`w-full h-full object-cover object-center filter brightness-[0.85] transition-transform duration-7000 ease-out ${index === currentSlide ? 'scale-105' : 'scale-100'
+                }`}
             />
             {/* Clean, subtle, even overlay for text clarity without heavy shades or gradients */}
             <div className="absolute inset-0 bg-black/30"></div>
@@ -70,10 +68,10 @@ export const CinematicHero = () => {
 
       {/* Center Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 w-full">
-        
+
         {/* Header Content */}
         <div className="text-center max-w-4xl mx-auto mb-3 sm:mb-6">
-          
+
           {/* Line 1: Big Letters (Single Line) */}
           <h1 className="font-serif text-xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold tracking-tight text-white uppercase leading-tight mb-1 sm:mb-2.5 drop-shadow-xl sm:whitespace-nowrap">
             A Stay Beyond{' '}
@@ -91,7 +89,7 @@ export const CinematicHero = () => {
 
         {/* Two Side-by-Side Property Cards (Sleek Compact Luxury Cards) */}
         <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
-          
+
           {/* Card 1: Prabhaa Grand Inn */}
           <div
             className="group relative rounded-xl p-3 sm:p-5 lg:p-6 bg-white/95 backdrop-blur-2xl border border-gold-400/40 hover:border-gold-500 transition-all duration-300 shadow-xl hover:-translate-y-1 overflow-hidden"
@@ -240,11 +238,10 @@ export const CinematicHero = () => {
             <button
               key={slide.id}
               onClick={() => setCurrentSlide(index)}
-              className={`transition-all duration-300 rounded-full cursor-pointer ${
-                index === currentSlide
+              className={`transition-all duration-300 rounded-full cursor-pointer ${index === currentSlide
                   ? 'w-5 sm:w-6 h-1.5 sm:h-2 bg-gradient-to-r from-gold-400 to-gold-600 shadow-md'
                   : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-slate-700 hover:bg-slate-500'
-              }`}
+                }`}
               aria-label={`Go to slide ${index + 1}: ${slide.title}`}
             />
           ))}
